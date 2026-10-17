@@ -1,0 +1,7 @@
+{
+  "name": "business-ai-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Адаптивный сайт-визитка: ИИ и автоматизация для бизнеса",
+  "scripts": { "start": "node server.mjs", "check": "node --check assets/app.js && node --check assets/config.js && node --check server.mjs" }
+}
