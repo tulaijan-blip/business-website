@@ -2,14 +2,16 @@ const config = window.SITE_CONFIG || {};
 if (config.name?.trim()) document.querySelectorAll('[data-name]').forEach(el => el.textContent = config.name.trim());
 const username = (config.telegramUsername || '').trim().replace(/^@/, '');
 const dialog = document.querySelector('#contact-dialog');
-const telegram = document.querySelector('.telegram');
+const telegramLinks = document.querySelectorAll('[data-telegram]');
 if (/^[a-zA-Z][a-zA-Z0-9_]{4,31}$/.test(username)) {
-  telegram.href = `https://t.me/${username}`;
-  telegram.target = '_blank';
-  telegram.rel = 'noopener noreferrer';
+  telegramLinks.forEach(link => {
+    link.href = `https://t.me/${username}`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
   document.querySelector('#telegram-note').textContent = `@${username}`;
 } else {
-  telegram.addEventListener('click', e => { e.preventDefault(); dialog.showModal(); });
+  telegramLinks.forEach(link => link.addEventListener('click', e => { e.preventDefault(); dialog.showModal(); }));
 }
 document.querySelectorAll('.close-dialog, .close-action').forEach(button => button.addEventListener('click', () => dialog.close()));
 dialog.addEventListener('click', e => { if (e.target === dialog) { const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close(); } });

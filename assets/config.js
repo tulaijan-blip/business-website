@@ -1,5 +1,5 @@
 // Заполните реальные данные. Username Telegram укажите без @.
 window.SITE_CONFIG = {
   name: 'Тулеуова Айтжан',
-  telegramUsername: 'Тулеуова Айтжан',
+  telegramUsername: 'JustClickNet',
 };
