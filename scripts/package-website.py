@@ -11,7 +11,7 @@ for name in ('config', 'app'):
 # Inline scripts run after the document, including when opened directly from disk.
 scripts = '\n'.join((root / f'assets/{name}.js').read_text() for name in ('config', 'app'))
 page = page.replace('</body>', '<script>\n' + scripts + '\n</script></body>')
-for asset in ('favicon.svg', 'portrait.jpg', 'portrait.png'):
+for asset in ('favicon.svg', 'Элегантный деловой портрет в офисе.png'):
     path = root / 'assets' / asset
     if path.exists():
         mime = {'.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png'}[path.suffix]
